@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Temperature Hot</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google FOnts link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url(images/pexels-pixabay-76969.jpg) no-repeat;
+            background-size: cover;
+            font-family: 'Josefin Slab', serif;
+            font-weight: 600px;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+            
+        }
+        #displayCity{
+            color: #092834;
+        }
+        body::after{
+            content: '';
+            width: 50%;
+            height: 100%;
+            background-color: #101010;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: .3;
+            z-index: -1;
+        }        
+        body::before{
+            content: '';
+            width: 50%;
+            height: 100%;
+            background-color: #101070;
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: .3;
+            z-index: -1;
+        }
+        /* animation: myAnim 2s ease 0s 1 normal forwards; */
+        .cloudAnimation{
+            /* height: 100px;
+            width: 100px;
+            border-radius: 50%; */
+            position: relative;
+            /* width: 900px; */
+        }
+    .cloudAnimation::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+    margin: auto;
+	top: 26px;
+	height: 40%;
+	width: 200px;
+    border-radius: 502%;
+	background-color: #fff;
+	opacity: .5;
+	z-index: -1;
+    animation: playAnimation 1s ease-out infinite; 
+}
+    @keyframes playAnimation {
+    0%{
+        transform: scale(1);
+        opacity: .9;
+    }
+	100% {
+        transform: scale(6);
+		opacity: 0;
+	}
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="col-md-6 m-auto py-5">
+            <div class="input-group mb-3">
+                <input id="cityInput" type="text" value="" class="form-control" placeholder="Enter a location for Weather ...">
+                <div class="input-group-append">
+                    <button id="inputValueSearch" type="button" class="btn btn-danger">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="weather-status text-center cloudAnimation">
+            <span class=""><img src="https://openweathermap.org/img/wn/02d@2x.png" alt=""></span>
+            <h1 id="displayCity">City</h1>
+            <h3><span id="temparatureDisplay">00</span>&deg;C</h3>
+            <h1 id="cloudsOrSun" class="lead">Normal</h1>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
